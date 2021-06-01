@@ -7,6 +7,8 @@ import java.util.Scanner;
  * searches the array of cards for the match to the user's card. To be used as starting code in ICE 1
  *
  * @author Bhavneet Singh
+ * @version 1.0
+ * @date 1 June 2021
  */
 public class CardTrick {
 
@@ -61,12 +63,12 @@ public class CardTrick {
         }
         
         //comparing the playerMove 
-        if (playerChoice.getValue() == c.getValue() && playerChoice.getSuit().equals(c.getSuit()) ){
-            System.out.println("YEAH, your card is from the hand!");
-        }
-        else
-            System.out.println("Bad luck! your card is not in the hand of cards");
-        
+//        if (playerChoice.getValue() == c.getValue() && playerChoice.getSuit().equals(c.getSuit()) ){
+//            System.out.println("YEAH, your card is from the hand!");
+//        }
+//        else
+//            System.out.println("Bad luck! your card is not in the hand of cards");
+//        
         //how to search the hand of the cards 
         
         //c.setValue(insert call to random number generator here)
