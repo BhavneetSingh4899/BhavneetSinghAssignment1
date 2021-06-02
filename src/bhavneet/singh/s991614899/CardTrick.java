@@ -48,19 +48,21 @@ public class CardTrick {
         
         //prompt user to input the card value and its Suit 
         System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
-        playerChoice.setValue(in.nextInt());
-        
+        int userValue = in.nextInt();
+        checkingValue(userValue);
+
         System.out.println("Please enter your suit (Hearts, Diamonds, Spades, Clubs): ");
         playerChoice.setSuit(in.next());
+
         
         // debugging
-        System.out.println("value is "+playerChoice.getValue()+"\nsuit is: "+playerChoice.getSuit());
-        
-        for (int i = 0; i < magicHand.length; i++) {
-        if (playerChoice.getSuit().equals(magicHand[i].getSuit()) ){
-            System.out.println("JATTA SAHI AA ");
-        }
-        }
+//        System.out.println("value is "+playerChoice.getValue()+"\nsuit is: "+playerChoice.getSuit());
+//        
+//        for (int i = 0; i < magicHand.length; i++) {
+//        if (playerChoice.getSuit().equals(magicHand[i].getSuit()) ){
+//            System.out.println("JATTA SAHI AA ");
+//        }
+//        }
         
         //comparing the playerMove 
 //        if (playerChoice.getValue() == c.getValue() && playerChoice.getSuit().equals(c.getSuit()) ){
@@ -73,7 +75,25 @@ public class CardTrick {
         
         //c.setValue(insert call to random number generator here)
         //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
-            
+        
     } // end of the main class 
 
+    public static void checkingValue(int userValue){
+        
+        Scanner in = new Scanner(System.in);
+        
+        if (userValue > 13 || userValue < 1){
+            System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
+            userValue = in.nextInt();
+        }
+    }
+    
+    public static void checkSuit(int userSuit){
+        
+        Scanner in = new Scanner(System.in);
+        
+        if (userSuit >4 || userSuit < 1){
+            System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
+            userSuit = in.nextInt();
+        }
 }
