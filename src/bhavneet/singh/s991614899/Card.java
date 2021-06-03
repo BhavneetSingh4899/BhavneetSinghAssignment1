@@ -12,10 +12,10 @@ package bhavneet.singh.s991614899;
  */
 public class Card {
 
-   private String suit; //clubs, spades, diamonds, hearts
+   private int suit; // 1 for clubs, 2 for spades, 3 for diamonds, 4 for hearts
    private int value;   //1-13
 
-   public static final String [] SUITS = {"Hearts", "Diamonds", "Spades", "Clubs"};
+//   public static final String [] SUITS = {"Hearts", "Diamonds", "Spades", "Clubs"};
     
    public Card(){
        this.suit = suit;
@@ -25,7 +25,7 @@ public class Card {
    /**
      * @return the suit
      */
-    public String getSuit() {
+    public int getSuit() {
         return suit;
     }
     
@@ -36,7 +36,7 @@ public class Card {
     /**
      * @param suit the suit to set
      */
-    public void setSuit(String suit) {
+    public void setSuit(int suit) {
         this.suit = suit;
     }
     

@@ -17,9 +17,9 @@ public class CardTrick {
         Scanner in =new Scanner(System.in);
         
         Card[] magicHand = new Card[7];
-   
+        Card c = new Card();
         for (int i = 0; i < magicHand.length; i++) {
-            Card c = new Card();
+            
 //        }
 //            
 //        for (int j = 0; j < magicHand.length; j++){
@@ -34,7 +34,7 @@ public class CardTrick {
             c.setValue((int) (Math.random()*(totalCardInDeck)) + 1); 
             
             // random generation of the suit 
-            c.setSuit(Card.SUITS[(int) (Math.random()*4)]);
+            c.setSuit((int)(Math.random()* 4) + 1);
             System.out.println("the value is "+ c.getValue()+" & the suit is "+c.getSuit());
         }
 
@@ -51,30 +51,16 @@ public class CardTrick {
         int userValue = in.nextInt();
         checkingValue(userValue);
 
-        System.out.println("Please enter your suit (Hearts, Diamonds, Spades, Clubs): ");
-        playerChoice.setSuit(in.next());
+        System.out.println("Please enter your suit ( 1 for clubs, 2 for spades, 3 for diamonds, 4 for hearts): ");
+        playerChoice.setSuit(in.nextInt());
 
-        
-        // debugging
-//        System.out.println("value is "+playerChoice.getValue()+"\nsuit is: "+playerChoice.getSuit());
-//        
-//        for (int i = 0; i < magicHand.length; i++) {
-//        if (playerChoice.getSuit().equals(magicHand[i].getSuit()) ){
-//            System.out.println("JATTA SAHI AA ");
-//        }
-//        }
-        
+                
         //comparing the playerMove 
-//        if (playerChoice.getValue() == c.getValue() && playerChoice.getSuit().equals(c.getSuit()) ){
-//            System.out.println("YEAH, your card is from the hand!");
-//        }
-//        else
-//            System.out.println("Bad luck! your card is not in the hand of cards");
-//        
-        //how to search the hand of the cards 
-        
-        //c.setValue(insert call to random number generator here)
-        //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
+          if (playerChoice.getValue() == (c.getValue()) || (playerChoice.getSuit()) == (c.getSuit()) ){
+            System.out.println("YEAH, your card is from the hand!");
+         }
+            else
+             System.out.println("Bad luck! your card is not in the hand of cards");
         
     } // end of the main class 
 
@@ -96,4 +82,6 @@ public class CardTrick {
             System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
             userSuit = in.nextInt();
         }
+    }     
+    
 }
