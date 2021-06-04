@@ -20,11 +20,6 @@ public class CardTrick {
         Card c = new Card();
         for (int i = 0; i < magicHand.length; i++) {
             
-//        }
-//            
-//        for (int j = 0; j < magicHand.length; j++){
-            
-            
             //total cards in each suit are 13 where Jack is 11, Queen is 12 and King is 13
             int totalCardInDeck = 13;
             
@@ -49,12 +44,28 @@ public class CardTrick {
         //prompt user to input the card value and its Suit 
         System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
         int userValue = in.nextInt();
-        checkingValue(userValue);
+        
+        if (isValidMove(userValue)){
+            playerChoice.setValue(userValue);
+        }
+        else{
+             System.out.println(userValue + " is invalid card");
+             checkValue(userValue);
+             playerChoice.setValue(userValue);
+        }
+        
+        System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
+        int userSuit = in.nextInt();
+            if (isValidSuit(userSuit)){
+                playerChoice.setSuit(userSuit);
+            }
+             else{
+               System.out.println(userSuit + " is invalid suit");
+                checkSuit(userSuit);
+                playerChoice.setSuit(userSuit);
+            }
 
-        System.out.println("Please enter your suit ( 1 for clubs, 2 for spades, 3 for diamonds, 4 for hearts): ");
-        playerChoice.setSuit(in.nextInt());
-
-                
+         
         //comparing the playerMove 
           if (playerChoice.getValue() == (c.getValue()) || (playerChoice.getSuit()) == (c.getSuit()) ){
             System.out.println("YEAH, your card is from the hand!");
@@ -64,12 +75,12 @@ public class CardTrick {
         
     } // end of the main class 
 
-    public static void checkingValue(int userValue){
+    public static void checkValue(int userValue){
         
         Scanner in = new Scanner(System.in);
         
-        if (userValue > 13 || userValue < 1){
-            System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
+        if (userValue >13 || userValue < 1){
+            System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");
             userValue = in.nextInt();
         }
     }
@@ -78,10 +89,50 @@ public class CardTrick {
         
         Scanner in = new Scanner(System.in);
         
-        if (userSuit >4 || userSuit < 1){
-            System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
+        if (userSuit >4 || userSuit < 1){ 
+            System.out.println("Please enter your suit ( 1 for clubs, 2 for spades, 3 for diamonds, 4 for hearts): ");   
             userSuit = in.nextInt();
         }
-    }     
+    }        
+    
+    public static boolean isValidMove(int userValue) {
+        switch (userValue) {
+            case 1:
+                return true;
+            case 2:
+                return true;
+            case 3:
+                return true;
+            case 4:
+                return true;
+            case 5:
+                return true;
+            case 6:
+                return true;
+            case 7:
+                return true;
+            case 8:
+                return true;
+            case 9:
+                return true;
+            default:
+                return false;
+        }  
+    }
+    
+    public static boolean isValidSuit(int userSuit) {
+        switch (userSuit) {
+            case 1:
+                return true;
+            case 2:
+                return true;
+            case 3:
+                return true;
+            case 4:
+                return true;
+            default:
+                return false;
+        }
+    }
     
 }
