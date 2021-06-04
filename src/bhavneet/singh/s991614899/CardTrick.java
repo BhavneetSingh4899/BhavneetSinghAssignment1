@@ -14,7 +14,7 @@ public class CardTrick {
 
     public static void main(String[] args) {
         
-        Scanner in =new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         
         Card[] magicHand = new Card[7];
         Card c = new Card();
@@ -30,65 +30,68 @@ public class CardTrick {
             
             // random generation of the suit 
             c.setSuit((int)(Math.random()* 4) + 1);
+            
+            //debugging
             System.out.println("the value is "+ c.getValue()+" & the suit is "+c.getSuit());
-        }
-
-        //insert code to ask the user for Card value and suit, create their card
-        // and search magicHand here
-        //Then report the result here
-        
+            magicHand[i] = c;
+        }      
         
         //user input 
         Card playerChoice = new Card();
         
-        //prompt user to input the card value and its Suit 
+        //prompt user to input the card value 
         System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
         int userValue = in.nextInt();
         
+        //to check the user input if user input is invalid then ask again
         if (isValidMove(userValue)){
             playerChoice.setValue(userValue);
         }
         else{
              System.out.println(userValue + " is invalid card");
-             checkValue(userValue);
+             checkValue(userValue,in);
              playerChoice.setValue(userValue);
         }
-        
-        System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");    
+       
+        //prompt user to input the suit
+        System.out.println("Please enter your suit ( 1 for clubs, 2 for spades, 3 for diamonds, 4 for hearts):  ");    
         int userSuit = in.nextInt();
-            if (isValidSuit(userSuit)){
+            
+        //to check the user input if user input is invalid then ask again
+        if (isValidSuit(userSuit)){
                 playerChoice.setSuit(userSuit);
-            }
-             else{
+        }
+        else{
                System.out.println(userSuit + " is invalid suit");
-                checkSuit(userSuit);
+                checkSuit(userSuit,in);
                 playerChoice.setSuit(userSuit);
-            }
+        }
 
-         
-        //comparing the playerMove 
-          if (playerChoice.getValue() == (c.getValue()) || (playerChoice.getSuit()) == (c.getSuit()) ){
-            System.out.println("YEAH, your card is from the hand!");
-         }
-            else
-             System.out.println("Bad luck! your card is not in the hand of cards");
+        //comparing the playerchoice with the magicHand 
+        for (int i= 0; i < magicHand.length; i++){
+            if (playerChoice.getValue() == (magicHand[i].getValue()) && (playerChoice.getSuit()) == (magicHand[i].getSuit()) ){
+              System.out.println("You win, your card is from the hand!");
+              break;
+           }
+            else{
+                System.out.println("You lose, your card is not in the hand");
+                break;
+            }      
+        }
+        
+        //closing Scanner
+        in.close();
         
     } // end of the main class 
 
-    public static void checkValue(int userValue){
-        
-        Scanner in = new Scanner(System.in);
-        
+    public static void checkValue(int userValue,Scanner in){
         if (userValue >13 || userValue < 1){
             System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");
             userValue = in.nextInt();
         }
     }
     
-    public static void checkSuit(int userSuit){
-        
-        Scanner in = new Scanner(System.in);
-        
+    public static void checkSuit(int userSuit,Scanner in){
         if (userSuit >4 || userSuit < 1){ 
             System.out.println("Please enter your suit ( 1 for clubs, 2 for spades, 3 for diamonds, 4 for hearts): ");   
             userSuit = in.nextInt();
@@ -114,6 +117,14 @@ public class CardTrick {
             case 8:
                 return true;
             case 9:
+                return true;
+            case 10:
+                return true;
+            case 11:
+                return true;
+            case 12:
+                return true;
+            case 13:
                 return true;
             default:
                 return false;
