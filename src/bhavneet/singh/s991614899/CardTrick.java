@@ -17,8 +17,14 @@ public class CardTrick {
         Scanner in = new Scanner(System.in);
         
         Card[] magicHand = new Card[7];
+        
+        // for the random genertion 
         Card c = new Card();
+        
         for (int i = 0; i < magicHand.length; i++) {
+            
+            // change for the memory allocation needed
+            magicHand[i] = new Card();
             
             //total cards in each suit are 13 where Jack is 11, Queen is 12 and King is 13
             int totalCardInDeck = 13;
@@ -31,9 +37,9 @@ public class CardTrick {
             // random generation of the suit 
             c.setSuit((int)(Math.random()* 4) + 1);
             
-            //debugging
-            System.out.println("the value is "+ c.getValue()+" & the suit is "+c.getSuit());
+            //assigning the value of [i] = c 
             magicHand[i] = c;
+            
         }      
         
         //user input 
