@@ -42,6 +42,24 @@ public class CardTrick {
             
         }      
         
+        // hard coded on the github
+        Card luckyCard = new Card();
+        luckyCard.setValue(1);   // 1 -> Ace
+        luckyCard.setSuit(4)    // 4 -> Hearts 
+        
+        //comparing the luckyCard with the magicHand 
+        for (int i= 0; i < magicHand.length; i++){
+            if (luckyCard.getValue() == (magicHand[i].getValue()) && (luckyCard.getSuit()) == (magicHand[i].getSuit()) ){
+              System.out.println("You win, your card is the hand!");
+              break;
+           }
+            else{
+                System.out.println("You lose, your card is not in the hand");
+                break;
+            }      
+        }
+        
+        /*
         //user input 
         Card playerChoice = new Card();
         
@@ -87,9 +105,11 @@ public class CardTrick {
         
         //closing Scanner
         in.close();
+        */
         
     } // end of the main class 
 
+    /*
     public static void checkValue(int userValue,Scanner in){
         if (userValue >13 || userValue < 1){
             System.out.println("Please enter your value from 0-13 ( where Ace is 1, Jack is 11, Queen is 12 and King is 13 ): ");
@@ -151,5 +171,6 @@ public class CardTrick {
                 return false;
         }
     }
+    */
     
 }
