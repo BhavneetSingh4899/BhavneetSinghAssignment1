@@ -7,7 +7,7 @@ package bhavneet.singh.s991614899;
  * There are 52 cards in a deck, no jokers.
  * 
  * @author Bhavneet Singh
- * @version 1.2
+ * @version 1.3
  * @date 4 June 2021
  */
 public class Card {
