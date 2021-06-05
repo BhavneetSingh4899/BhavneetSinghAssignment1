@@ -7,8 +7,8 @@ import java.util.Scanner;
  * searches the array of cards for the match to the user's card. To be used as starting code in ICE 1
  *
  * @author Bhavneet Singh
- * @version 1.0
- * @date 1 June 2021
+ * @version 1.2
+ * @date 4 June 2021
  */
 public class CardTrick {
 
@@ -45,7 +45,7 @@ public class CardTrick {
         // hard coded on the github
         Card luckyCard = new Card();
         luckyCard.setValue(1);   // 1 -> Ace
-        luckyCard.setSuit(4)    // 4 -> Hearts 
+        luckyCard.setSuit(4);    // 4 -> Hearts 
         
         //comparing the luckyCard with the magicHand 
         for (int i= 0; i < magicHand.length; i++){
